@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage('Hi') {
+            steps {
+                withCredentials([string(credentialsId: '671630aa-6b57-4c09-b72a-53d2b6bc9db9', variable: 'API')]) {
+                    echo "Secret loaded safely. Value length: ${API.length()}"
+                }
+            }
+        }
+    }
+}
